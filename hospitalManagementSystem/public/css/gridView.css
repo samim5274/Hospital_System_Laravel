@@ -1,0 +1,191 @@
+@media only screen and (max-width: 1200px) {
+  header{
+    height: 70vh;
+  }
+  .row{
+    margin: 0 15px;
+  }
+  .hero-text-box{
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .mobail-menu span{
+    display: block;
+  }
+  header{
+    height: 60vh;
+  }
+  .main-nav{
+    display: none;
+  }
+  html{
+    font-size: 57.5%;
+  }  
+  .client-photo{
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  .client-review{
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  .contact-section form {
+    width: 100%;
+    margin-left: 0;
+  }
+
+}
+
+@media only screen and (max-width: 980px) {
+
+  .span_1_of_4 {
+  	width: 49.2%;
+  }
+  .span_1_of_4:nth-child(3) {
+    margin-left:  0;
+  }
+  html{
+    font-size: 62.5%;
+  }
+  .service-section .s-box{
+    background: rgb(195, 193, 193, 0.7);
+    margin: 1px;
+    height: 100%;
+    color: #191846;
+    width: 100%;
+  }
+  .service-section .sr-row{
+    padding: 4rem 0 4rem 0;
+  }
+  .service-section .role{
+    font-size: 15px;
+  }
+  .glance-section .glance{
+    width: 49.2%;
+  }
+}
+
+@media only screen and (max-width: 780px){
+
+header{
+  height: 50vh;
+}
+  .littel-discription{
+    width: 100%;
+    margin-left: 0;
+  }
+  h1{
+    font-size: 3.5rem;
+  }
+  h2{
+    font-size: 3rem;
+  }
+  h3{
+    font-size: 2rem;
+  }
+  .testimonial .col:nth-child(3),
+  .testimonial .col:nth-child(4) {
+    margin-top: 4rem;
+  }    
+  .dropdown-content {
+    min-width: 300px;
+  }
+  .dropdown-content2 {
+    min-width: 300px;
+  }
+  .dropdown-content p{
+    font-size: 14px;
+  }
+  .dropdown-content2 p{
+    font-size: 14px;
+  }
+  .footer-section .col {
+    width: 49%;
+    margin-bottom: 3rem;
+  }
+  .footer-section .third{
+    margin-left: 0;
+  }
+}
+
+
+@media only screen and (max-width: 710px)
+{
+  .protfolio-section img {
+    margin: 0rem;    
+  }
+}
+@media only screen and (max-width: 480px){
+  header{
+    height: 75vh;
+  }
+  .span_1_of_4 {
+  	width: 100%;
+  }
+  h1{
+    font-size: 3rem;
+  }
+  h2{
+    font-size: 2.5rem;
+  }
+  h3{
+    font-size: 2rem;
+  }  
+  .protfolio-filter button{
+    font-size: .98rem;
+  }
+  .glance-section .glance{
+    width: 100%;
+  }
+  .dropdown-content {
+    padding: 0;
+  }
+  .dropdown-content2 {
+    padding: 0;
+  }
+  .footer-section .col {
+    width: 100%;
+    margin-bottom: 3rem;
+    text-align: center;
+  }  
+  .footer-section .col h4{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .footer-section .col h4::after{
+    visibility: hidden;
+  }
+  .footer-section .social-link{
+    width: 50%;
+    margin-left: 12.5rem;
+  }
+  .footer-section .footer-end a{
+    font-size: 1.5rem;
+  }
+  .footer-section .footer-end a:hover{
+    font-size: 1.7rem;
+  }
+}
+/* 20 video ses */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 320 */
+
+/* end */
