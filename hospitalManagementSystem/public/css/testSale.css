@@ -10,3 +10,7 @@ table th{
     height: 250px;
     overflow: auto;
 }
+
+.bg-color{
+    border: 1px solid #15e4d0;
+}

@@ -93,15 +93,15 @@
                   <div class="container">
                      <div class="row">
                         <div class="col-md-6">
-                           <h1 class="banner_taital">Health <br><span style="color: #151515;">Care</span></h1>
-                           <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
+                           <h1 class="banner_taital">All Medical <br><span style="color: #151515;">Care Center.</span></h1>
+                           <p class="banner_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo laudantium ipsam eligendi soluta possimus? A.</p>
                            <div class="btn_main">
-                              <div class="more_bt"><a href="#">Contact Now</a></div>
-                              <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                              <div class="more_bt"><a href="#">Find Your Doctors</a></div>
+                              <div class="contact_bt"><a href="#">Get Your Pression</a></div>
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="image_1"><img src="images/img-1.png"></div>
+                           <div class="image_1"><img src="images/img-4.png"></div>
                         </div>
                      </div>
                   </div>

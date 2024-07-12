@@ -226,16 +226,40 @@
                     </table>
                 </div>
             </div>
+            <div class="col bg-color my-2">
+                <div class="row">
+                    <div class="col-6">
+                        <div class=" my-2 ">
+                            <label for="" class="form-label">Total:</label>
+                            <input type="number" class="form-control" disabled id="num1" value="1250">
+                        </div>
+                        <div class=" my-2 ">
+                            <label for="" class="form-label">Discount</label>
+                            <input placeholder="Discount" type="number" onkeyup="sumNumbers()" id="num3" required value="0" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class=" my-2 ">
+                            <label for="" class="form-label">Received</label>
+                            <input placeholder="Received Amount" required type="number" onkeyup="sumNumbers()" id="num2" class="form-control">
+                        </div>
+                        <div class=" my-2 ">
+                            <p id="result" class="display-4"></p>
+                        </div>
+                    </div>  
+                    <button class="btn btn-info btn-block" id="btnSave" disabled>Save</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 
     <script src="/js/jquery.min.js"></script>
-   <script src="/js/popper.min.js"></script>
-   <script src="/js/bootstrap.bundle.min.js"></script>
-   <script src="/js/jquery-3.0.0.min.js"></script>
-   <script src="/js/plugin.js"></script>
-
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.0.0.min.js"></script>
+    <script src="/js/plugin.js"></script>
+    <script src="/js/testSale.js"></script>
 </body>
 </html>
