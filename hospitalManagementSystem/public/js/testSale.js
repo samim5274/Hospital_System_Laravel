@@ -31,6 +31,11 @@ function sumNumbers() {
                 document.getElementById('result').textContent = "Return: " + sum + "/-";
                 btnSave.disabled = false;
             }
+            else if (number3 == number1)
+            {
+                document.getElementById('result').textContent = "Full Discount! : " + sum  + "/-";
+                btnSave.disabled = false;
+            }
             else if (number2 < number1)
             {
                 if(number2 == 0)

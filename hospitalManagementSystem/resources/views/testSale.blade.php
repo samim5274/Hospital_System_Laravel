@@ -134,11 +134,7 @@
                                 <td><a href="{{ url('/remove/item/'.$row['id']) }}"><button class="btn btn-sm btn-warning">Remove</button></a></td>
                             </tr> 
                             <?php $i++;?>
-                            @endforeach
-                            <tr>
-                                <td colspan="2">Total Amount</td>
-                                <td colspan="2">{{$sum2}}</td>
-                            </tr>                   
+                            @endforeach                 
                         </tbody>
                     </table>
                 </div>
@@ -147,8 +143,8 @@
                 <div class="row">
                     <div class="col-6">
                         <div class=" my-2 ">
-                            <label for="" class="form-label">Total:</label>
-                            <input type="number" class="form-control" disabled id="num1" value="1250">
+                            <label for="" class="form-label display-4">Total: {{$sum2}}/-</label>
+                            <input type="number" class="form-control" disabled hidden id="num1" value="{{$sum2}}">
                         </div>
                         <div class=" my-2 ">
                             <label for="" class="form-label">Discount</label>

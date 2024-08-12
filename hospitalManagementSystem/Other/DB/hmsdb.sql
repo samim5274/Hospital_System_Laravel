@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2024 at 08:06 PM
+-- Generation Time: Aug 12, 2024 at 02:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -226,7 +226,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('rvygjltN1VLeZNJ5kfjQVPwWKS7Q3mnrmt5Mi2lS', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiV0VmcjllSWc2T3pjaXJwQkVPeUM3UzdzZ3dMQnZ0bmFNVGx0ZHBRYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjQ6ImNhcnQiO2E6Mjp7aToxO2E6NTp7czoyOiJpZCI7aToxO3M6NDoibmFtZSI7czozOiJSQlMiO3M6NToiY2F0aWQiO2k6MTtzOjU6InByaWNlIjtpOjIwMDtzOjQ6InJvb20iO2k6MTAyO31pOjI7YTo1OntzOjI6ImlkIjtpOjI7czo0OiJuYW1lIjtzOjM6IkNCQyI7czo1OiJjYXRpZCI7aToxO3M6NToicHJpY2UiO2k6NTAwO3M6NDoicm9vbSI7aToxMDM7fX19', 1723399351);
+('Cjr6yugpsvnwRRNCj1c7BKjn1B6i9hDh1AVZasA6', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYjNURUp6TkUwZ2o2Q1hmRjJHZFhTd0VDVXF4c3VHR2VESnpiRDB0cSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723464624);
 
 -- --------------------------------------------------------
 
@@ -244,17 +244,6 @@ CREATE TABLE `storetests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `storetests`
---
-
-INSERT INTO `storetests` (`id`, `regNum`, `testid`, `testprice`, `catid`, `room`, `created_at`, `updated_at`) VALUES
-(44, 1, 1, 200, 1, 102, '2024-08-11 11:41:39', '2024-08-11 11:41:39'),
-(45, 1, 2, 500, 1, 103, '2024-08-11 11:41:41', '2024-08-11 11:41:41'),
-(49, 1, 3, 1200, 3, 105, '2024-08-11 11:57:01', '2024-08-11 11:57:01'),
-(50, 1, 1, 200, 1, 102, '2024-08-11 12:00:53', '2024-08-11 12:00:53'),
-(51, 1, 1, 200, 1, 102, '2024-08-11 12:02:31', '2024-08-11 12:02:31');
 
 -- --------------------------------------------------------
 
@@ -392,7 +381,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `storetests`
 --
 ALTER TABLE `storetests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `users`
