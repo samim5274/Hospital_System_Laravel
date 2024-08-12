@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="/css/testSale.css">
 </head>
 <body>
+
+<section id="account-section">
+  <div class="">
+    <div class="row">
+        <div class="col text-center">
+          @if(session()->has('success'))
+            <div class="alert alert-success">
+              {{ session()->get('success') }}
+            </div>
+            @elseif(session()->has('error'))
+            <div class="alert alert-danger">
+              {{ session()->get('error') }}
+            </div>
+          @endif
+        </div>
+    </div>
+  </div>
+</section>
     
 <section id="main-section">
     <div class="container">
@@ -79,154 +97,53 @@
                             </tr>
                         </thead>
                         <tbody class="text-center">
+                            @foreach($data1 as $data)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>CBC</td>
-                                <td>200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
+                                <td scope="row">{{$data->id}}</td>
+                                <td>{{$data->name}}</td>
+                                <td>{{$data->price}}/-</td>
+                                <td><a href="{{ url('/add-item/'.$data->id) }}"><button class="btn btn-sm btn-info">Add</button></a></td>
                             </tr>
+                            @endforeach                           
                             <tr>
-                                <th scope="row">2</th>
-                                <td>RBS</td>
-                                <td>550/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
+                                <td colspan="2">Total Amount</td>
+                                <td colspan="2">{{$sum}}/-</td>
                             </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-
-
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-info">Add</button></td>
-                            </tr>
-                            <!-- <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
                 <div class="bg-light mt-3 overflow-auto" >
-                    <table class="table table-bordered">
+                <table class="table table-bordered">
                         <thead class="text-center">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Test Name</th>
                                 <th scope="col">Amount</th>
+                                <th scope="col">Reg. No</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center">
+                        <tbody class="text-center">                            
+                            <?php $i = 1;?>
+                            @foreach($storetest as $datas => $row)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>CBC</td>
-                                <td>200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
+                                <th scope="row">{{$i;}}</th>
+                                <td>{{$row->testid}}</td>
+                                <td>{{$row->testprice}}</td>
+                                <td>{{$row->regNum}}</td>
+                                <td><a href="{{ url('/remove/item/'.$row['id']) }}"><button class="btn btn-sm btn-warning">Remove</button></a></td>
+                            </tr> 
+                            <?php $i++;?>
+                            @endforeach
                             <tr>
-                                <th scope="row">2</th>
-                                <td>RBS</td>
-                                <td>550/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-
-
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>HsBgS</td>
-                                <td>1200/-</td>
-                                <td><button class="btn btn-sm btn-warning">Remove</button></td>
-                            </tr>
+                                <td colspan="2">Total Amount</td>
+                                <td colspan="2">{{$sum2}}</td>
+                            </tr>                   
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="col bg-color my-2">
+            <div class="col bg-color my-4">
                 <div class="row">
                     <div class="col-6">
                         <div class=" my-2 ">
@@ -247,7 +164,7 @@
                             <p id="result" class="display-4"></p>
                         </div>
                     </div>  
-                    <button class="btn btn-info btn-block" id="btnSave" disabled>Save</button>
+                    <button class="btn btn-success btn-block mx-3" id="btnSave" disabled>Save</button>
                 </div>
             </div>
         </div>

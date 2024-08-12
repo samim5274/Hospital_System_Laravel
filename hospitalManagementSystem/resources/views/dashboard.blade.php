@@ -25,19 +25,19 @@
             <section class="dashboard">
                 <a href="/test-sale">
                     <div class="card">
-                        <h3>Patients</h3>
+                        <h3>Test Sale</h3>
                         <p>Total: 120</p>
                     </div>
                 </a>
-                <a href="">
+                <a href="/view-test-details">
                     <div class="card">
-                        <h3>Doctors</h3>
+                        <h3>View Test Details</h3>
                         <p>Total: 25</p>
                     </div>
                 </a>
-                <a href="">
+                <a href="/test-details">
                     <div class="card">
-                        <h3>Appointments</h3>
+                        <h3>Add Test</h3>
                         <p>Total: 75</p>
                     </div>
                 </a>
