@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Storetest;
 use App\Models\Investigation;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class StoretestController extends Controller
 {
@@ -69,34 +71,37 @@ class StoretestController extends Controller
         $Sdata = new StoreTest();
         $dataTest = Investigation::find($id);   
 
-        $reg = 11;
+        $regnumber = 2;
+        $tname = $Sdata->testname;
 
-        $findTest = StoreTest::where('regNum','=',$reg)->orWhere('testid','=',$dataTest->id)->first();
+        $findReg = StoreTest::where('regNum','LIKE','%'. $regnumber . '%')->GET();
 
-        if($findTest)
+        if($findReg->isEmpty())
         {
-            return redirect()->back()->with('error', 'Error.Try again. Thank you!');
+            return redirect()->back()->with('error', 'Registration not found.'); 
         }
         else
         {
-            if(isset($findTest) )
+            $findTest = StoreTest::where('testname','LIKE','%'. $tname . '%')->GET();
+
+            if($findTest->isEmpty())
             {
-                $Sdata->regNum=1;
-                $Sdata->testid=$dataTest->id;
-                $Sdata->testprice=$dataTest->price;
-                $Sdata->catid=$dataTest->catid;
-                $Sdata->room=$dataTest->room;        
-                
-                $Sdata->save();
-                return redirect()->back()->with('success', 'Test added to cart successfully!');
+                return redirect()->back()->with('success', 'Test not found. Now add some test.'); 
             }
             else
             {
-                return redirect()->back()->with('error', 'This test already added. Please try another. Thank you!');
-            }
-        }
-
+                return redirect()->back()->with('error', 'Test already found. Try another to add.'); 
+            }            
+        }   
+                
+        $Sdata->regNum = $regnumber;
+        $Sdata->testname=$dataTest->name;
+        $Sdata->testprice=$dataTest->price;
+        $Sdata->catid=$dataTest->catid;
+        $Sdata->room=$dataTest->room;        
         
+        $Sdata->save();
+        return redirect()->back()->with('success', 'Test added to cart successfully!');      
     }
 
     public function removeItem($id)

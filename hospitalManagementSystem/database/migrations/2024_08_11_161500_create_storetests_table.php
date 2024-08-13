@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('storetests', function (Blueprint $table) {
             $table->id();
             $table->integer('regNum');
-            $table->integer('testid');
+            $table->integer('testname');
             $table->integer('testprice');
             $table->integer('catid');
             $table->integer('room');

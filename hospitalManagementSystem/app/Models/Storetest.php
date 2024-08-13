@@ -11,7 +11,7 @@ class Storetest extends Model
 
     protected $fillable = [
         'regNum',
-        'testid',
+        'testname',
         'testprice',
         'catid',
         'room',

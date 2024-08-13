@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2024 at 02:11 PM
+-- Generation Time: Aug 12, 2024 at 08:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -131,7 +131,7 @@ INSERT INTO `investigations` (`id`, `name`, `catid`, `price`, `room`, `created_a
 (13, 'Urine For R/E', 4, 100, 103, '2024-08-04 15:09:59', '2024-08-04 15:09:59'),
 (14, 'Stool R/E', 3, 100, 103, '2024-08-04 15:10:16', '2024-08-04 15:10:16'),
 (15, 'Electrolytes', 7, 1000, 103, '2024-08-04 15:10:37', '2024-08-04 15:10:37'),
-(16, '2hrs ABF CUS', 9, 100, 103, '2024-08-04 15:10:51', '2024-08-04 15:10:51'),
+(16, '2hrs ABS CUS', 9, 100, 103, '2024-08-04 15:10:51', '2024-08-04 15:10:51'),
 (17, 'Blood Film', 1, 500, 103, '2024-08-04 15:11:03', '2024-08-04 15:11:03'),
 (18, 'S.Protein', 12, 400, 103, '2024-08-04 15:11:19', '2024-08-04 15:11:19');
 
@@ -226,7 +226,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Cjr6yugpsvnwRRNCj1c7BKjn1B6i9hDh1AVZasA6', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYjNURUp6TkUwZ2o2Q1hmRjJHZFhTd0VDVXF4c3VHR2VESnpiRDB0cSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723464624);
+('81EJEB7hbvacm9xVy8v1iYHZk9wWHPetCZPJ5G0P', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ3ZoZE5lbTczemdOcjRxajlsdTV5bWo5VE1scllkV3phRkhub0wzdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723489010);
 
 -- --------------------------------------------------------
 
@@ -236,14 +236,24 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 
 CREATE TABLE `storetests` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `regNum` int(11) NOT NULL,
-  `testid` int(11) NOT NULL,
+  `regNum` bigint(11) NOT NULL,
+  `testname` longtext NOT NULL,
   `testprice` int(11) NOT NULL,
   `catid` int(11) NOT NULL,
   `room` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `storetests`
+--
+
+INSERT INTO `storetests` (`id`, `regNum`, `testname`, `testprice`, `catid`, `room`, `created_at`, `updated_at`) VALUES
+(206, 2, 'RBS', 200, 1, 102, '2024-08-12 12:54:57', '2024-08-12 12:54:57'),
+(208, 2, 'HbsAg', 1200, 3, 105, '2024-08-12 12:54:59', '2024-08-12 12:54:59'),
+(209, 1, 'X-ray', 1500, 6, 203, '2024-08-12 12:55:10', '2024-08-12 12:55:10'),
+(210, 1, 'Urine ARY', 5000, 4, 103, '2024-08-12 12:55:12', '2024-08-12 12:55:12');
 
 -- --------------------------------------------------------
 
@@ -381,7 +391,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `storetests`
 --
 ALTER TABLE `storetests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT for table `users`

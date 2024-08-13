@@ -117,9 +117,9 @@
                         <thead class="text-center">
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Reg. No</th>
                                 <th scope="col">Test Name</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Reg. No</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -128,9 +128,9 @@
                             @foreach($storetest as $datas => $row)
                             <tr>
                                 <th scope="row">{{$i;}}</th>
-                                <td>{{$row->testid}}</td>
-                                <td>{{$row->testprice}}</td>
                                 <td>{{$row->regNum}}</td>
+                                <td>{{$row->testname}}</td>
+                                <td>{{$row->testprice}}</td>
                                 <td><a href="{{ url('/remove/item/'.$row['id']) }}"><button class="btn btn-sm btn-warning">Remove</button></a></td>
                             </tr> 
                             <?php $i++;?>
