@@ -40,8 +40,17 @@ Route::resource('/insert-Iinvestigation', InvestigationController::class);
 
 // Route::get('/test-details', [CategoryController::class, 'index']);
 
+// ======================== testing route here start ========================= //
+
 Route::get('/view-test-details', 'App\Http\Controllers\ShowController@show');
+
+Route::get('/add-item/{id}','App\Http\Controllers\ShowController@addItem');
+
+Route::get('/remove/item/{id}','App\Http\Controllers\ShowController@removeItem');
+
+// ======================== testing route here end ========================= //
 
 Route::get('/add-item/{id}','App\Http\Controllers\StoreTestController@addItem');
 
 Route::get('/remove/item/{id}','App\Http\Controllers\StoreTestController@removeItem');
+

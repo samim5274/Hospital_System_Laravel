@@ -70,38 +70,27 @@ class StoretestController extends Controller
     {
         $Sdata = new StoreTest();
         $dataTest = Investigation::find($id);   
-
+        
         $regnumber = 2;
-        $tname = $Sdata->testname;
-
-        $findReg = StoreTest::where('regNum','LIKE','%'. $regnumber . '%')->GET();
-
+        $tname = $dataTest->name;
+              
+        $findReg = StoreTest::where('regNum','LIKE','%'. $regnumber . '%')->where('testname','LIKE','%'. $tname . '%')->GET();
+        
         if($findReg->isEmpty())
         {
-            return redirect()->back()->with('error', 'Registration not found.'); 
+            $Sdata->regNum = $regnumber;
+            $Sdata->testname=$dataTest->name;
+            $Sdata->testprice=$dataTest->price;
+            $Sdata->catid=$dataTest->catid;
+            $Sdata->room=$dataTest->room;        
+            
+            $Sdata->save();
+            return redirect()->back()->with('success', 'Test added to list successfully!');
         }
         else
         {
-            $findTest = StoreTest::where('testname','LIKE','%'. $tname . '%')->GET();
-
-            if($findTest->isEmpty())
-            {
-                return redirect()->back()->with('success', 'Test not found. Now add some test.'); 
-            }
-            else
-            {
-                return redirect()->back()->with('error', 'Test already found. Try another to add.'); 
-            }            
-        }   
-                
-        $Sdata->regNum = $regnumber;
-        $Sdata->testname=$dataTest->name;
-        $Sdata->testprice=$dataTest->price;
-        $Sdata->catid=$dataTest->catid;
-        $Sdata->room=$dataTest->room;        
-        
-        $Sdata->save();
-        return redirect()->back()->with('success', 'Test added to cart successfully!');      
+            return redirect()->back()->with('error', 'Test already found. Try another to add.'); 
+        }    
     }
 
     public function removeItem($id)

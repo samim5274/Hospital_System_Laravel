@@ -1,11 +1,31 @@
-// $card = session()->get('cart');
-        // $card[$id] = [
-        //     "id" => $dataTest->id,
-        //     "name" => $dataTest->name,
-        //     "catid" => $dataTest->catid,
-        //     "price" => $dataTest->price,
-        //     "room" => $dataTest->room
-        // ];
-        // session()->put('cart', $card);
-        // return redirect()->back()->with('success', 'Test added to cart successfully!');
-
+if($findReg->isEmpty())
+        {
+            $Sdata->regNum = $regnumber;
+            $Sdata->testname=$dataTest->name;
+            $Sdata->testprice=$dataTest->price;
+            $Sdata->catid=$dataTest->catid;
+            $Sdata->room=$dataTest->room;        
+            
+            $Sdata->save();
+            return redirect()->back()->with('success', 'Test added to cart successfully!');
+        }
+        else
+        {
+            $findTest = StoreTest::where('testname','LIKE','%'. $tname . '%')->GET();
+            
+            if($findTest->isEmpty())
+            {
+                $Sdata->regNum = $regnumber;
+                $Sdata->testname=$dataTest->name;
+                $Sdata->testprice=$dataTest->price;
+                $Sdata->catid=$dataTest->catid;
+                $Sdata->room=$dataTest->room;        
+                
+                $Sdata->save();
+                return redirect()->back()->with('success', 'Test added to cart successfully!');
+            }
+            else
+            {
+                return redirect()->back()->with('error', 'Test already found. Try another to add.');   
+            }    
+        }   

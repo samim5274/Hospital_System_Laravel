@@ -12,44 +12,127 @@
 </head>
 <body>
 
-
-    <section id="show-test-details">
-        <div class="container">
-        <div class="row">
-            <div class="col">                
-            <table class="table table-bordered" >
-                <thead class="text-center">
-                    <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Test Name</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Room No</th>
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    @foreach($data1 as $data)
-                    <tr>
-                        <th scope="row">{{$data->id}}</th>
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->catname}}</td>                    
-                        <td>৳{{$data->price}}/-</td>
-                        <td>{{$data->room}}</td>
-                    </tr>
-                    @endforeach   
-                    <tr>
-                        <th scope="row">Total: {{$data2}}</th>
-                        <td></td>
-                        <td></td>                    
-                        <td>Total:৳ {{$data3}}/-</td>
-                        <td></td>
-                    </tr>  
-                </tbody>
-            </table>
+<section id="account-section">
+  <div class="">
+    <div class="row">
+        <div class="col text-center">
+          @if(session()->has('success'))
+            <div class="alert alert-success">
+              {{ session()->get('success') }}
             </div>
+            @elseif(session()->has('error'))
+            <div class="alert alert-danger">
+              {{ session()->get('error') }}
+            </div>
+          @endif
         </div>
+    </div>
+  </div>
+</section>
+
+<section id="store-test">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-6">
+                <table class="table table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Test Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach($data1 as $data)
+                        <tr>
+                            <td scope="row">{{$data->id}}</td>
+                            <td>{{$data->name}}</td>
+                            <td>{{$data->price}}/-</td>
+                            <td><a href="{{ url('/add-item/'.$data->id) }}"><button class="btn btn-sm btn-info">Add</button></a></td>
+                        </tr>
+                        @endforeach                           
+                        <tr>
+                            <td colspan="2">Total Amount</td>
+                            <td colspan="2">{{$data3}}/-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-6">
+                <table class="table table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Reg. No</th>
+                            <th scope="col">Test Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">                            
+                        <?php $i = 1;?>
+                        @foreach($storetest as $datas => $row)
+                        <tr>
+                            <th scope="row">{{$i;}}</th>
+                            <td>{{$row->regNum}}</td>
+                            <td>{{$row->testname}}</td>
+                            <td>{{$row->testprice}}</td>
+                            <td><a href="{{ url('/remove/item/'.$row['id']) }}"><button class="btn btn-sm btn-warning">Remove</button></a></td>
+                        </tr> 
+                        <?php $i++;?>
+                        @endforeach                 
+                    </tbody>
+                </table>  
+                <h4>Total : {{$sum2}}/-</h4>              
+            </div>    
+
         </div>
-    </section>
+    </div>
+</section>
+
+
+<!-- ===============================show all test========================================  -->
+
+<section id="show-test-details">
+    <div class="container">
+    <div class="row">
+        <div class="col">                
+        <table class="table table-bordered" >
+            <thead class="text-center">
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Test Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Room No</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach($data1 as $data)
+                <tr>
+                    <th scope="row">{{$data->id}}</th>
+                    <td>{{$data->name}}</td>
+                    <td>{{$data->catname}}</td>                    
+                    <td>৳{{$data->price}}/-</td>
+                    <td>{{$data->room}}</td>
+                </tr>
+                @endforeach   
+                <tr>
+                    <th scope="row">Total: {{$data2}}</th>
+                    <td></td>
+                    <td></td>                    
+                    <td>Total:৳ {{$data3}}/-</td>
+                    <td></td>
+                </tr>  
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+</section>
 
 
 </body>

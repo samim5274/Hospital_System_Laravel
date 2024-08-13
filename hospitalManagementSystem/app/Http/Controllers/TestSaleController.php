@@ -14,7 +14,8 @@ class TestSaleController extends Controller
     {
         $data1 = Investigation::all();
         $sum = Investigation::sum('price');
-        $storetest = StoreTest::all();
+        $regnumber = 2;
+        $storetest = StoreTest::where('regNum',$regnumber)->get();
         $sum2 = StoreTest::sum('testprice');
         return view('testSale', compact('data1','sum','storetest','sum2'));
     }
