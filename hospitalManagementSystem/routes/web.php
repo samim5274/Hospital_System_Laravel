@@ -26,7 +26,9 @@ Route::get('/login', function() {
 //     return view('testSale');
 // });
 
-Route::get('/test-sale','App\Http\Controllers\TestSaleController@index');
+Route::get('/test-sale','App\Http\Controllers\DigonesticsaleinfoController@index');
+
+Route::get('/test-sale/data-insert', 'App\Http\Controllers\DigonesticsaleinfoController@store');
 
 // Route::get('/test-details', function() {
 //     // $cat = DB::table('categorys')->get();     

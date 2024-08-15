@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2024 at 02:26 PM
+-- Generation Time: Aug 13, 2024 at 09:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,22 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Table structure for table `categorys`
 --
 
-CREATE TABLE `category` (
+CREATE TABLE `categorys` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `catname` varchar(255) NOT NULL,
   `remark` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `category`
+-- Dumping data for table `categorys`
 --
 
-INSERT INTO `category` (`id`, `name`, `remark`, `created_at`, `updated_at`) VALUES
+INSERT INTO `categorys` (`id`, `catname`, `remark`, `created_at`, `updated_at`) VALUES
 (1, 'Blood', NULL, NULL, NULL),
 (2, 'Imaging', NULL, NULL, NULL),
 (3, 'Stool', NULL, NULL, NULL),
@@ -60,9 +60,9 @@ INSERT INTO `category` (`id`, `name`, `remark`, `created_at`, `updated_at`) VALU
 --
 
 --
--- Indexes for table `category`
+-- Indexes for table `categorys`
 --
-ALTER TABLE `category`
+ALTER TABLE `categorys`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -70,9 +70,9 @@ ALTER TABLE `category`
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT for table `categorys`
 --
-ALTER TABLE `category`
+ALTER TABLE `categorys`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 

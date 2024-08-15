@@ -7,17 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Investigation;
 use App\Models\StoreTest;
+use App\Models\Doctor;
+use App\Models\Refer;
+use App\Models\TestSale;
+use Carbon\Carbon;
 
 class TestSaleController extends Controller
 {
-    public function index()
-    {
-        $data1 = Investigation::all();
-        $sum = Investigation::sum('price');
-        $regnumber = 2;
-        $storetest = StoreTest::where('regNum',$regnumber)->get();
-        $sum2 = StoreTest::sum('testprice');
-        return view('testSale', compact('data1','sum','storetest','sum2'));
-    }
-
+    
 }

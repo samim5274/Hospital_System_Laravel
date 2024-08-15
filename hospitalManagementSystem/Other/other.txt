@@ -29,3 +29,46 @@ if($findReg->isEmpty())
                 return redirect()->back()->with('error', 'Test already found. Try another to add.');   
             }    
         }   
+
+
+test sale insert code
+
+// some data define for future use
+        $exTSOfficerId = 0;
+        $exData1 = 0;
+        $dStatus = 0; // 1 for due & 0 for no due
+        $dCollection = 0;
+        $dDiscount = 0;
+        $dCdate = 0;
+        $dCOid = 0;
+        $rTOid = 0;
+        $rTStatus = 0; // 1 for returned & 0 for no return
+        $rtDate = 0;
+        // some data define for future use
+
+        $data1->regNumber = $request->has() ? $request->get():'';
+
+        $data1->patientName = $request->has('name') ? $request->get('name'):'';
+        $data1->dob = $request->has('dob') ? $request->get('dob'):'';
+        $data1->gender = $request->has('gender') ? $request->get('gender'):'';
+        $data1->phone = $request->has('phone') ? $request->get('phone'):'';
+        $data1->address = $request->has('address') ? $request->get('address'):'';
+        $data1->doctorid = $request->has('doctorid') ? $request->get('doctorid'):'';
+        $data1->referid = $request->has('referid') ? $request->get('referid'):'';
+        $data1->testSaleOfficerId = $exTSOfficerId; // test sale officer id
+        $data1->totalAmount = $request->has('totalAmount') ? $request->get('totalAmount'):'';
+        $data1->discount = $request->has('discount') ? $request->get('discount'):'';
+        $data1->received = $request->has('received') ? $request->get('received'):'';
+        $data1->receivedreminAmount = $exData1; // not for now
+        $data1->testsalteDate = $request->has('cdob') ? $request->get('cdob'):'';
+        $data1->dueStatus = $dStatus; // due status 1 for due & 0 for no due
+        $data1->dueCollection = $dCollection; // due collection amount
+        $data1->dueDiscount = $dDiscount; // due collection discount
+        $data1->dueCollectDate = $dCdate; // due collection date
+        $data1->dueCollectOfficerId = $dCOid; // due collection officer id
+
+        $data1->testReturnOfficerId = $rTOid; // return test officer id
+        $data1->testReturnStatus = $rTStatus; // return test status
+        $data1->testReturnDate = $rtDate; // return test date
+
+        dd($data1);

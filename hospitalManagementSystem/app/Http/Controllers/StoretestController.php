@@ -71,7 +71,7 @@ class StoretestController extends Controller
         $Sdata = new StoreTest();
         $dataTest = Investigation::find($id);   
         
-        $regnumber = 2;
+        $regnumber = 1;
         $tname = $dataTest->name;
               
         $findReg = StoreTest::where('regNum','LIKE','%'. $regnumber . '%')->where('testname','LIKE','%'. $tname . '%')->GET();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2024 at 08:58 PM
+-- Generation Time: Aug 13, 2024 at 08:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,45 +24,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorys`
+-- Table structure for table `doctors`
 --
 
-CREATE TABLE `categorys` (
+CREATE TABLE `doctors` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `catname` varchar(255) NOT NULL,
-  `remark` varchar(255) DEFAULT NULL,
+  `doctName` varchar(255) NOT NULL,
+  `doctDesignation` varchar(255) NOT NULL,
+  `doctPhone` int(11) NOT NULL,
+  `doctFee` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categorys`
+-- Dumping data for table `doctors`
 --
 
-INSERT INTO `categorys` (`id`, `catname`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 'Blood', NULL, NULL, NULL),
-(2, 'Imaging', NULL, NULL, NULL),
-(3, 'Stool', NULL, NULL, NULL),
-(4, 'Urine', NULL, NULL, NULL),
-(5, 'Cardiovascular', NULL, NULL, NULL),
-(6, 'X-ray', NULL, NULL, NULL),
-(7, 'Endoscopic', NULL, NULL, NULL),
-(8, 'Biopsy and Cytology', NULL, NULL, NULL),
-(9, 'Genetic and Molecular', NULL, NULL, NULL),
-(10, 'Microbiological', NULL, NULL, NULL),
-(11, 'Allergy', NULL, NULL, NULL),
-(12, 'Hormone', NULL, NULL, NULL),
-(13, 'Metabolic', NULL, NULL, NULL),
-(14, 'Neurological', NULL, NULL, NULL);
+INSERT INTO `doctors` (`id`, `doctName`, `doctDesignation`, `doctPhone`, `doctFee`, `created_at`, `updated_at`) VALUES
+(1, 'Dr. Ashraful Islam', 'MBBS, FCPS, Microbiology', 152368974, 500, NULL, NULL),
+(2, 'Dr. Mizanul Islam', 'MBBS, FCPS, Microbiology', 152368974, 500, NULL, NULL),
+(3, 'Dr. Shafayatul Islam', 'MBBS, FCPS, Microbiology', 152368974, 500, NULL, NULL),
+(4, 'Dr. Anisul Islam', 'MBBS, FCPS, Microbiology', 152368974, 500, NULL, NULL),
+(5, 'Dr. Shaidur Rahman', 'MBBS, FCPS, Microbiology', 152368974, 500, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `categorys`
+-- Indexes for table `doctors`
 --
-ALTER TABLE `categorys`
+ALTER TABLE `doctors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -70,10 +63,10 @@ ALTER TABLE `categorys`
 --
 
 --
--- AUTO_INCREMENT for table `categorys`
+-- AUTO_INCREMENT for table `doctors`
 --
-ALTER TABLE `categorys`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `doctors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

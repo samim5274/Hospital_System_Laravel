@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('refers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('remark');
+            $table->string('refName');
+            $table->string('refAddress');
+            $table->integer('refPhone');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category');
+        Schema::dropIfExists('refers');
     }
 };

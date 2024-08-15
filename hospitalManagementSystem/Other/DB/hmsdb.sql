@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2024 at 08:57 PM
+-- Generation Time: Aug 15, 2024 at 08:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,6 +78,65 @@ INSERT INTO `categorys` (`id`, `catname`, `remark`, `created_at`, `updated_at`) 
 (12, 'Hormone', NULL, NULL, NULL),
 (13, 'Metabolic', NULL, NULL, NULL),
 (14, 'Neurological', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `digonesticsaleinfos`
+--
+
+CREATE TABLE `digonesticsaleinfos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `regNumber` int(11) NOT NULL,
+  `patientName` varchar(255) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `doctorid` int(11) NOT NULL,
+  `referid` int(11) NOT NULL,
+  `testSaleOfficerId` int(11) NOT NULL,
+  `totalAmount` int(11) NOT NULL,
+  `discount` int(11) NOT NULL,
+  `received` int(11) NOT NULL,
+  `receivedreminAmount` int(11) NOT NULL,
+  `testsalteDate` date NOT NULL,
+  `dueStatus` int(11) NOT NULL,
+  `dueCollection` int(11) NOT NULL,
+  `dueDiscount` int(11) NOT NULL,
+  `dueCollectDate` date DEFAULT NULL,
+  `dueCollectOfficerId` int(11) NOT NULL,
+  `testReturnStatus` int(11) NOT NULL,
+  `testReturnDate` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctors`
+--
+
+CREATE TABLE `doctors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `doctName` varchar(255) NOT NULL,
+  `doctDesignation` varchar(255) NOT NULL,
+  `doctPhone` int(11) NOT NULL,
+  `doctFee` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `doctName`, `doctDesignation`, `doctPhone`, `doctFee`, `created_at`, `updated_at`) VALUES
+(1, 'Dr. Shohanur Rahman', 'MBBS, FCPS, Microbiology', 152465897, 500, NULL, NULL),
+(2, 'Dr. Mazina Tanvir', 'MBBS, FCPS, Microbiology', 152465897, 500, NULL, NULL),
+(3, 'Dr. Hasanur Hahman', 'MBBS, FCPS, Microbiology', 152465897, 500, NULL, NULL),
+(4, 'Dr. Saidur Rahman', 'MBBS, FCPS, Microbiology', 152465897, 500, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -192,7 +251,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '0001_01_01_000002_create_jobs_table', 1),
 (16, '2024_08_10_183824_create_categorys_table', 1),
 (17, '2024_08_10_183844_create_investigations_table', 1),
-(21, '2024_08_11_161500_create_storetests_table', 2);
+(21, '2024_08_11_161500_create_storetests_table', 2),
+(22, '2024_08_13_084118_create_digonesticsaleinfos_table', 3),
+(23, '2024_08_13_122538_create_doctors_table', 3),
+(24, '2024_08_13_122549_create_refers_table', 3);
 
 -- --------------------------------------------------------
 
@@ -205,6 +267,32 @@ CREATE TABLE `password_reset_tokens` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `refers`
+--
+
+CREATE TABLE `refers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `refName` varchar(255) NOT NULL,
+  `refAddress` varchar(255) NOT NULL,
+  `refPhone` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `refers`
+--
+
+INSERT INTO `refers` (`id`, `refName`, `refAddress`, `refPhone`, `created_at`, `updated_at`) VALUES
+(1, 'Ashraful Islam', 'Ashuliya, Dhaka, Bangladesh', 132546978, NULL, NULL),
+(2, 'Mizanul Islam', 'Ashuliya, Dhaka, Bangladesh', 132546978, NULL, NULL),
+(3, 'Faisal Islam', 'Ashuliya, Dhaka, Bangladesh', 132546978, NULL, NULL),
+(4, 'Parves Islam', 'Ashuliya, Dhaka, Bangladesh', 132546978, NULL, NULL),
+(5, 'Biswajit Islam', 'Ashuliya, Dhaka, Bangladesh', 132546978, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -226,7 +314,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('81EJEB7hbvacm9xVy8v1iYHZk9wWHPetCZPJ5G0P', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ3ZoZE5lbTczemdOcjRxajlsdTV5bWo5VE1scllkV3phRkhub0wzdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723489010);
+('4yJqu00vLPo18eVG1Fe4hIZWzPapNGW7E1p2bE2b', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUHZ4ZEZVdGE1VVdaZnBKVHBsZXRvM3ZLM1UwaU03YlpQMWoxTkVLZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723703622);
 
 -- --------------------------------------------------------
 
@@ -252,8 +340,9 @@ CREATE TABLE `storetests` (
 INSERT INTO `storetests` (`id`, `regNum`, `testname`, `testprice`, `catid`, `room`, `created_at`, `updated_at`) VALUES
 (206, 2, 'RBS', 200, 1, 102, '2024-08-12 12:54:57', '2024-08-12 12:54:57'),
 (208, 2, 'HbsAg', 1200, 3, 105, '2024-08-12 12:54:59', '2024-08-12 12:54:59'),
-(209, 1, 'X-ray', 1500, 6, 203, '2024-08-12 12:55:10', '2024-08-12 12:55:10'),
-(210, 1, 'Urine ARY', 5000, 4, 103, '2024-08-12 12:55:12', '2024-08-12 12:55:12');
+(218, 1, 'Electrolytes', 1000, 7, 103, '2024-08-14 01:20:44', '2024-08-14 01:20:44'),
+(220, 1, 'HbsAg', 1200, 3, 105, '2024-08-14 06:19:11', '2024-08-14 06:19:11'),
+(221, 1, 'RBS', 200, 1, 102, '2024-08-14 22:35:35', '2024-08-14 22:35:35');
 
 -- --------------------------------------------------------
 
@@ -295,6 +384,18 @@ ALTER TABLE `categorys`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `digonesticsaleinfos`
+--
+ALTER TABLE `digonesticsaleinfos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctors`
+--
+ALTER TABLE `doctors`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -333,6 +434,12 @@ ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indexes for table `refers`
+--
+ALTER TABLE `refers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -364,6 +471,18 @@ ALTER TABLE `categorys`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `digonesticsaleinfos`
+--
+ALTER TABLE `digonesticsaleinfos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `doctors`
+--
+ALTER TABLE `doctors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -385,13 +504,19 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `refers`
+--
+ALTER TABLE `refers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `storetests`
 --
 ALTER TABLE `storetests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
 
 --
 -- AUTO_INCREMENT for table `users`
