@@ -9,9 +9,6 @@
 </head>
 <body>
 
-
-
-
 <div id="input-section">
     <div class="container">
 
@@ -149,7 +146,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class=" my-2 ">
-                                    <label for="" class="form-label display-4">Total: {{$sum2}}/-</label>
+                                    <label for="" class="form-label display-4">Actual: {{$sum2}}/-</label>
                                     <input type="number" class="form-control" hidden disabled id="num1" name="totalAmount" value="{{$sum2}}">
                                 </div>
                                 <div class=" my-2 ">
@@ -159,7 +156,7 @@
                             <div class="col-md-6">                                
                                 <div class=" my-2 ">
                                     <label for="" class="form-label">Discount</label>
-                                    <input placeholder="Discount" type="number" onkeyup="sumNumbers()" id="num3" value="400" name="discount" required value="0" class="form-control">
+                                    <input placeholder="Discount" type="number" onkeyup="sumNumbers()" id="num3"  name="discount" required value="0" class="form-control">
                                 </div>
                                 <div class=" my-2 ">
                                     <label for="" class="form-label">Received</label>
@@ -347,7 +344,7 @@
                             <th scope="col">Amount</th>
                             <th scope="col">Discount</th>
                             <th scope="col">Received</th>
-                            <th scope="col">Back</th>
+                            <th scope="col">Due</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -363,15 +360,23 @@
                             <td>{{$row->receivedreminAmount}}</td>
 
                             @if($row->receivedreminAmount == 0 )
-                            <td>Paid</td>
+                            <td class="alert alert-success">Paid</td>
                             @elseif($row->receivedreminAmount < 0)                           
-                            <td>Return</td>
+                            <td class="alert alert-danger">Return</td>
                             @else
                             <td>Due </td>
                             @endif                                                   
                         </tr> 
                         <?php $i++;?>
-                        @endforeach                 
+                        @endforeach   
+                        <tr>
+                            <th colspan="2">Total Amount</th>
+                            <td>৳{{$d1}}/-</td>
+                            <td>৳{{$d2}}/-</td>
+                            <td>৳{{$d3}}/-</td>
+                            <td>৳{{$d4}}/-</td>
+                            <td class="alert alert-warning">৳{{$r1}}/-</td>
+                        </tr>              
                     </tbody>
                 </table>
             </div>

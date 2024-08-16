@@ -29,14 +29,12 @@ class DigonesticsaleinfoController extends Controller
         $d2 = Digonesticsaleinfo::sum('discount');
         $d3 = Digonesticsaleinfo::sum('received');
         $d4 = Digonesticsaleinfo::sum('receivedreminAmount');
-        $r1 = $d3-$d4;
-        dd('Total: '. $d1, 'Discount '. $d2,'Received ' .$d3,'Return '. $d4, 'Re '.$r1);
-
+        $r1 = $d3+$d4;
         $today = Carbon::now()->toDateString();
         $data2 = Digonesticsaleinfo::where('testsalteDate',$today)->get();
         $doct = Doctor::all();
         $ref = Refer::all();
-        return view('testSale', compact('data1','sum','storetest','sum2','doct','ref','data2'));
+        return view('testSale', compact('data1','sum','storetest','sum2','doct','ref','data2','d1','d2','d3','d4','r1'));
     }
 
     public function store(Request $request)
@@ -68,7 +66,7 @@ class DigonesticsaleinfoController extends Controller
         {
             case($remAmount < 0 ):
                 $dueSts = 0; // 0 for no due & 1 for has due
-                $backAmount = $remAmount;
+                $recvAmount = $totalAmount - $dis;
                 break;
             case($remAmount > 0):
                 $dueSts = 1; // 0 for no due & 1 for has due
@@ -93,7 +91,7 @@ class DigonesticsaleinfoController extends Controller
         $data1->testSaleOfficerId = $saleOfficer;
         $data1->totalAmount = $totalAmount;
         $data1->discount = $request->has('discount') ? $request->get('discount'):'';
-        $data1->received = $request->has('received') ? $request->get('received'):'';
+        $data1->received = $recvAmount; 
         $data1->receivedreminAmount =  $backAmount;
         $data1->testsalteDate = $saleDate;
         $data1->dueStatus = $dueSts;
