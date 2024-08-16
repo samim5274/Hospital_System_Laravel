@@ -101,7 +101,6 @@
                         <div class="col-md-6">
                             <label for="dob" class="form-label">Date of Birth</label>
                             <input type="date" id="dob" value="2001-12-31" name="dob" class="form-control">
-                            <input type="date"  disabled id="cdob"  name="cdob" class="form-control">
                         </div>                        
                     </div>
                     <div class="row mt-4">                        
@@ -129,7 +128,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="doctor" class="form-label">Doctors</label>
-                            <select name="doctorid" class="custom-select" id="doctor">
+                            <select name="doctorid" required class="custom-select" id="doctor">
                                 <option selected disabled>Select Doctor</option>
                                 @foreach($doct as $docts)
                                     <option value="{{$docts->id}}">{{$docts->doctName}} ( {{$docts->doctDesignation}} )</option>
@@ -138,7 +137,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="refer" class="form-label">Reference</label>
-                            <select name="referid" class="custom-select" id="refer">
+                            <select name="referid" required class="custom-select" id="refer">
                                 <option selected disabled>Select Refer</option>
                                 @foreach($ref as $refe)
                                 <option value="{{$refe->id}}">{{$refe->refName}}</option>
@@ -148,28 +147,28 @@
                     </div>
                     <div class="col bg-color my-4">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class=" my-2 ">
                                     <label for="" class="form-label display-4">Total: {{$sum2}}/-</label>
-                                    <input type="number" class="form-control" disabled id="num1" name="totalAmount" value="{{$sum2}}">
+                                    <input type="number" class="form-control" hidden disabled id="num1" name="totalAmount" value="{{$sum2}}">
                                 </div>
+                                <div class=" my-2 ">
+                                    <p id="result" name="reminderAmount" class="display-4">Amount: 00/-</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">                                
                                 <div class=" my-2 ">
                                     <label for="" class="form-label">Discount</label>
                                     <input placeholder="Discount" type="number" onkeyup="sumNumbers()" id="num3" value="400" name="discount" required value="0" class="form-control">
                                 </div>
-                            </div>
-                            <div class="col-6">
                                 <div class=" my-2 ">
                                     <label for="" class="form-label">Received</label>
                                     <input placeholder="Received Amount" required type="number" onkeyup="sumNumbers()" id="num2" name="received" class="form-control">
                                 </div>
-                                <div class=" my-2 ">
-                                    <p id="result" name="reminderAmount" class="display-4"></p>
-                                </div>
-                            </div>  
-                            <button class="btn btn-light btn-block mx-3" id="btnSave" disabled>Save</button>
+                            </div>                              
                         </div>
                     </div>
+                    <button class="btn btn-light btn-block mx-3" id="btnSave" disabled>Save</button>
                 </form>
             </div>
         </div>
@@ -335,12 +334,51 @@
     </div>
 </section> -->
 
+<div id="show-investigation-test-sele-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <h2 class="text-center display-4 mt-4">Digonestic Test Sale Details</h2><hr>
+                <table class="table table-bordered bg-transparent text-dark">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Received</th>
+                            <th scope="col">Back</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">                            
+                        <?php $i = 1;?>
+                        @foreach($data2 as $datas => $row)
+                        <tr>
+                            <th scope="row">{{$i;}}</th>
+                            <td>{{$row->patientName}}</td>
+                            <td>{{$row->totalAmount}}</td>
+                            <td>{{$row->discount}}</td>
+                            <td>{{$row->received}}</td>
+                            <td>{{$row->receivedreminAmount}}</td>
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/jquery-3.0.0.min.js"></script>
-    <script src="/js/plugin.js"></script>
+                            @if($row->receivedreminAmount == 0 )
+                            <td>Paid</td>
+                            @elseif($row->receivedreminAmount < 0)                           
+                            <td>Return</td>
+                            @else
+                            <td>Due </td>
+                            @endif                                                   
+                        </tr> 
+                        <?php $i++;?>
+                        @endforeach                 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    
     <script src="/js/testSale.js"></script>
 </body>
 </html>

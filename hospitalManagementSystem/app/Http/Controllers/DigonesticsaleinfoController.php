@@ -20,22 +20,33 @@ class DigonesticsaleinfoController extends Controller
         $data1 = Investigation::all();
         $sum = Investigation::sum('price');
 
-        $regnumber = 1;
+        $regnumber = Digonesticsaleinfo::count();
         $storetest = StoreTest::where('regNum',$regnumber)->get();
         $sum2 = StoreTest::where('regNum',$regnumber)->sum('testprice');
 
+        // total income calculate
+        $d1 = Digonesticsaleinfo::sum('totalAmount');
+        $d2 = Digonesticsaleinfo::sum('discount');
+        $d3 = Digonesticsaleinfo::sum('received');
+        $d4 = Digonesticsaleinfo::sum('receivedreminAmount');
+        $r1 = $d3-$d4;
+        dd('Total: '. $d1, 'Discount '. $d2,'Received ' .$d3,'Return '. $d4, 'Re '.$r1);
+
+        $today = Carbon::now()->toDateString();
+        $data2 = Digonesticsaleinfo::where('testsalteDate',$today)->get();
         $doct = Doctor::all();
         $ref = Refer::all();
-        return view('testSale', compact('data1','sum','storetest','sum2','doct','ref'));
+        return view('testSale', compact('data1','sum','storetest','sum2','doct','ref','data2'));
     }
 
     public function store(Request $request)
     {
-        $data1 = new DigonesticsaleinfoController();
-
+        $data1 = new Digonesticsaleinfo();
+        
         // default value assign
-        $regnumber = 1;
+        $regnumber = Digonesticsaleinfo::count();
         $dueSts = 0;
+        $backAmount = 0;
         $saleOfficer = 1;
         $saleDate = Carbon::now()->toDateString(); // Assigns only the date, no time        
         $dueCol = 0; 
@@ -45,26 +56,33 @@ class DigonesticsaleinfoController extends Controller
         $retSts = 0; // 0 for no return & 1 for has return
         $retDate = null;
 
-        // calculate some value
+        // find some value
         $totalAmount = StoreTest::where('regNum',$regnumber)->sum('testprice');
         $recvAmount = $request->has('received') ? $request->get('received'):'';
         $dis = $request->has('discount') ? $request->get('discount'):'';
         
-        $remAmount = $totalAmount - $recvAmount - $dis;
+        // calculate some value
+        $remAmount = $totalAmount - ($recvAmount + $dis);
+        
+        switch($remAmount)
+        {
+            case($remAmount < 0 ):
+                $dueSts = 0; // 0 for no due & 1 for has due
+                $backAmount = $remAmount;
+                break;
+            case($remAmount > 0):
+                $dueSts = 1; // 0 for no due & 1 for has due
+                $backAmount = $remAmount;
+                break;
+            case($remAmount == 0):
+                $dueSts = 0; // 0 for no due & 1 for has due
+                $backAmount = $remAmount;
+                break;
+            default:
+                $backAmount = 0;
+        }
 
-        if($totalAmount == $remAmount)
-        {
-            $dueSts = 0; // 0 for no due & 1 for has due
-        }
-        elseif($remAmount < 0)
-        {
-            $backAmount = $remAmount;
-        }
-        else
-        {
-            $dueSts = 1; // 0 for no due & 1 for has due
-        }
-                
+        $data1->regNumber = $regnumber;
         $data1->patientName = $request->has('name') ? $request->get('name'):'';
         $data1->dob = $request->has('dob') ? $request->get('dob'):'';
         $data1->gender = $request->has('gender') ? $request->get('gender'):'';
@@ -87,8 +105,8 @@ class DigonesticsaleinfoController extends Controller
         $data1->testReturnDate = $retDate;
 
         // dd($data1);
-        
+
         $data1->save();
-        return redirect()->back()->with('success', 'Test sale transection successfully!');
+        return redirect()->back()->with('success', 'Test sale transection successfully!');                
     }
 }

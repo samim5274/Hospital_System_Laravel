@@ -7,6 +7,7 @@ use App\Models\Storetest;
 use App\Models\Investigation;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Digonesticsaleinfo;
 
 class StoretestController extends Controller
 {
@@ -71,7 +72,7 @@ class StoretestController extends Controller
         $Sdata = new StoreTest();
         $dataTest = Investigation::find($id);   
         
-        $regnumber = 1;
+        $regnumber = Digonesticsaleinfo::count();
         $tname = $dataTest->name;
               
         $findReg = StoreTest::where('regNum','LIKE','%'. $regnumber . '%')->where('testname','LIKE','%'. $tname . '%')->GET();
