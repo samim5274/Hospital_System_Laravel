@@ -8,6 +8,7 @@ use App\Http\Controllers\InvestigationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\TestSaleController;
 use App\Http\Controllers\StoreTestController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/', function () {
@@ -19,8 +20,12 @@ Route::get('/dashboard', function() {
 });
 
 Route::get('/login', function() {
-    return view('login');
+    return view('userRegister');
 });
+
+Route::resource('/user-signup', App\Http\Controllers\UserController::class);
+
+Route::get('/user-login', 'App\Http\Controllers\UserController@login');
 
 // Route::get('/test-sale', function() {
 //     return view('testSale');

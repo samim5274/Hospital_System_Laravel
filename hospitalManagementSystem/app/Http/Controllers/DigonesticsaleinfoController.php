@@ -19,18 +19,17 @@ class DigonesticsaleinfoController extends Controller
     {
         $data1 = Investigation::all();
         $sum = Investigation::sum('price');
-
+        $today = Carbon::now()->toDateString();
         $regnumber = Digonesticsaleinfo::count();
         $storetest = StoreTest::where('regNum',$regnumber)->get();
         $sum2 = StoreTest::where('regNum',$regnumber)->sum('testprice');
 
         // total income calculate
-        $d1 = Digonesticsaleinfo::sum('totalAmount');
-        $d2 = Digonesticsaleinfo::sum('discount');
-        $d3 = Digonesticsaleinfo::sum('received');
-        $d4 = Digonesticsaleinfo::sum('receivedreminAmount');
-        $r1 = $d3+$d4;
-        $today = Carbon::now()->toDateString();
+        $d1 = Digonesticsaleinfo::where('testsalteDate',$today)->sum('totalAmount');
+        $d2 = Digonesticsaleinfo::where('testsalteDate',$today)->sum('discount');
+        $d3 = Digonesticsaleinfo::where('testsalteDate',$today)->sum('received');
+        $d4 = Digonesticsaleinfo::where('testsalteDate',$today)->sum('receivedreminAmount');
+        $r1 = $d3+$d4;        
         $data2 = Digonesticsaleinfo::where('testsalteDate',$today)->get();
         $doct = Doctor::all();
         $ref = Refer::all();

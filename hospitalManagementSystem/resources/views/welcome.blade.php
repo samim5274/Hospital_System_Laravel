@@ -57,7 +57,7 @@
                   <a class="nav-link" href="#">Contact</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
+                  <a class="nav-link" href="/login">Signup</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="#"><img src="images/search-icon.png"></a>

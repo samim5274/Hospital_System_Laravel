@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2024 at 08:33 AM
+-- Generation Time: Aug 17, 2024 at 09:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -111,6 +111,25 @@ CREATE TABLE `digonesticsaleinfos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `digonesticsaleinfos`
+--
+
+INSERT INTO `digonesticsaleinfos` (`id`, `regNumber`, `patientName`, `dob`, `gender`, `phone`, `address`, `doctorid`, `referid`, `testSaleOfficerId`, `totalAmount`, `discount`, `received`, `receivedreminAmount`, `testsalteDate`, `dueStatus`, `dueCollection`, `dueDiscount`, `dueCollectDate`, `dueCollectOfficerId`, `testReturnStatus`, `testReturnDate`, `created_at`, `updated_at`) VALUES
+(34, 0, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 2, 3, 1, 2000, 400, 1600, 0, '2024-08-16', 0, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:32:40', '2024-08-16 02:32:40'),
+(35, 1, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 1, 1, 1200, 0, 1000, 200, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:33:20', '2024-08-16 02:33:20'),
+(36, 2, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 4, 1, 1500, 400, 1100, 0, '2024-08-16', 0, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:34:31', '2024-08-16 02:34:31'),
+(37, 3, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 1, 1, 1, 6850, 850, 6000, 0, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:35:17', '2024-08-16 02:35:17'),
+(38, 4, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 2, 1, 1, 3400, 400, 2500, 500, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:41:41', '2024-08-16 02:41:41'),
+(39, 5, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 4, 1, 500, 200, 300, 0, '2024-08-16', 0, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:42:02', '2024-08-16 02:42:02'),
+(40, 6, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 2, 1, 6200, 200, 5000, 1000, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:42:24', '2024-08-16 02:42:24'),
+(41, 7, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 2, 3, 1, 2750, 450, 2000, 300, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:53:57', '2024-08-16 02:53:57'),
+(42, 8, 'Rakib Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 3, 1, 200, 100, 100, 0, '2024-08-16', 0, 0, 0, NULL, 0, 0, NULL, '2024-08-16 02:57:30', '2024-08-16 02:57:30'),
+(43, 9, 'Sumon Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 4, 3, 1, 1500, 0, 1000, 500, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 03:00:21', '2024-08-16 03:00:21'),
+(44, 10, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 2, 4, 1, 1200, 0, 1000, 200, '2024-08-16', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 03:34:32', '2024-08-16 03:34:32'),
+(45, 11, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 3, 1, 1200, 200, 800, 200, '2024-08-17', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 21:14:05', '2024-08-16 21:14:05'),
+(46, 12, 'Shamim Hossain', '2001-12-31', 'Male', 1762164746, 'Kaliakair, Gazipur, Dhaka, Bangladesh', 3, 5, 1, 6200, 700, 5000, 500, '2024-08-17', 1, 0, 0, NULL, 0, 0, NULL, '2024-08-16 21:17:12', '2024-08-16 21:17:12');
 
 -- --------------------------------------------------------
 
@@ -254,7 +273,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2024_08_11_161500_create_storetests_table', 2),
 (22, '2024_08_13_084118_create_digonesticsaleinfos_table', 3),
 (23, '2024_08_13_122538_create_doctors_table', 3),
-(24, '2024_08_13_122549_create_refers_table', 3);
+(24, '2024_08_13_122549_create_refers_table', 3),
+(26, '2024_08_17_031905_create_users_table', 4);
 
 -- --------------------------------------------------------
 
@@ -314,7 +334,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('4yJqu00vLPo18eVG1Fe4hIZWzPapNGW7E1p2bE2b', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUHZ4ZEZVdGE1VVdaZnBKVHBsZXRvM3ZLM1UwaU03YlpQMWoxTkVLZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC90ZXN0LXNhbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723703622);
+('DpvN4oTvOvKkj4jEbYU3CticuTgnvT2n9ziiHczP', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidnA1d0hBYlV6V01EeXhnYXZYSXRyYXF4U3VacHVNT2NoaTM1ZDA4UCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODA4MC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1723878569);
 
 -- --------------------------------------------------------
 
@@ -338,11 +358,36 @@ CREATE TABLE `storetests` (
 --
 
 INSERT INTO `storetests` (`id`, `regNum`, `testname`, `testprice`, `catid`, `room`, `created_at`, `updated_at`) VALUES
-(206, 2, 'RBS', 200, 1, 102, '2024-08-12 12:54:57', '2024-08-12 12:54:57'),
-(208, 2, 'HbsAg', 1200, 3, 105, '2024-08-12 12:54:59', '2024-08-12 12:54:59'),
-(218, 1, 'Electrolytes', 1000, 7, 103, '2024-08-14 01:20:44', '2024-08-14 01:20:44'),
-(220, 1, 'HbsAg', 1200, 3, 105, '2024-08-14 06:19:11', '2024-08-14 06:19:11'),
-(221, 1, 'RBS', 200, 1, 102, '2024-08-14 22:35:35', '2024-08-14 22:35:35');
+(271, 0, 'RBS', 200, 1, 102, '2024-08-16 02:32:26', '2024-08-16 02:32:26'),
+(272, 0, 'CBC', 500, 1, 103, '2024-08-16 02:32:27', '2024-08-16 02:32:27'),
+(273, 0, 'HbsAg', 1200, 3, 105, '2024-08-16 02:32:28', '2024-08-16 02:32:28'),
+(274, 0, '2hrs ABS CUS', 100, 9, 103, '2024-08-16 02:32:31', '2024-08-16 02:32:31'),
+(275, 1, 'HbsAg', 1200, 3, 105, '2024-08-16 02:33:10', '2024-08-16 02:33:10'),
+(276, 2, 'X-ray', 1500, 6, 203, '2024-08-16 02:34:21', '2024-08-16 02:34:21'),
+(277, 3, 'USG', 1250, 2, 205, '2024-08-16 02:34:55', '2024-08-16 02:34:55'),
+(278, 3, 'Urine ARY', 5000, 4, 103, '2024-08-16 02:34:57', '2024-08-16 02:34:57'),
+(279, 3, 'TPHA', 600, 2, 103, '2024-08-16 02:35:01', '2024-08-16 02:35:01'),
+(280, 4, 'X-ray', 1500, 6, 203, '2024-08-16 02:41:27', '2024-08-16 02:41:27'),
+(281, 4, 'HbsAg', 1200, 3, 105, '2024-08-16 02:41:29', '2024-08-16 02:41:29'),
+(282, 4, 'CBC', 500, 1, 103, '2024-08-16 02:41:31', '2024-08-16 02:41:31'),
+(283, 4, 'RBS', 200, 1, 102, '2024-08-16 02:41:31', '2024-08-16 02:41:31'),
+(284, 5, 'Urine For R/E', 100, 4, 103, '2024-08-16 02:41:44', '2024-08-16 02:41:44'),
+(285, 5, 'S.Protein', 400, 12, 103, '2024-08-16 02:41:46', '2024-08-16 02:41:46'),
+(286, 6, '5D x-ray', 5500, 6, 205, '2024-08-16 02:42:08', '2024-08-16 02:42:08'),
+(287, 6, 'RBS', 200, 1, 102, '2024-08-16 02:42:11', '2024-08-16 02:42:11'),
+(288, 6, 'CBC', 500, 1, 103, '2024-08-16 02:42:12', '2024-08-16 02:42:12'),
+(289, 7, 'X-ray', 1500, 6, 203, '2024-08-16 02:53:36', '2024-08-16 02:53:36'),
+(290, 7, 'USG', 1250, 2, 205, '2024-08-16 02:53:38', '2024-08-16 02:53:38'),
+(291, 8, 'RBS', 200, 1, 102, '2024-08-16 02:57:08', '2024-08-16 02:57:08'),
+(292, 9, 'X-ray', 1500, 6, 203, '2024-08-16 03:00:05', '2024-08-16 03:00:05'),
+(293, 10, 'HbsAg', 1200, 3, 105, '2024-08-16 03:12:57', '2024-08-16 03:12:57'),
+(294, 11, 'S.Protein', 400, 12, 103, '2024-08-16 21:13:14', '2024-08-16 21:13:14'),
+(295, 11, 'Blood Film', 500, 1, 103, '2024-08-16 21:13:18', '2024-08-16 21:13:18'),
+(296, 11, '2hrs ABS CUS', 100, 9, 103, '2024-08-16 21:13:23', '2024-08-16 21:13:23'),
+(297, 11, 'Stool R/E', 100, 3, 103, '2024-08-16 21:13:26', '2024-08-16 21:13:26'),
+(298, 11, 'Urine For R/E', 100, 4, 103, '2024-08-16 21:13:33', '2024-08-16 21:13:33'),
+(299, 12, 'HbsAg', 1200, 3, 105, '2024-08-16 21:16:15', '2024-08-16 21:16:15'),
+(300, 12, '3D x-ray', 5000, 6, 205, '2024-08-16 21:16:18', '2024-08-16 21:16:18');
 
 -- --------------------------------------------------------
 
@@ -352,14 +397,32 @@ INSERT INTO `storetests` (`id`, `regNum`, `testname`, `testprice`, `catid`, `roo
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `userName` varchar(255) NOT NULL,
+  `userPassword` varchar(255) NOT NULL,
+  `userPhone` int(11) DEFAULT NULL,
+  `userAddress` varchar(255) DEFAULT NULL,
+  `joinDate` date DEFAULT NULL,
+  `isActive` int(11) DEFAULT NULL,
+  `isAdmin` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `dob`, `gender`, `email`, `userName`, `userPassword`, `userPhone`, `userAddress`, `joinDate`, `isActive`, `isAdmin`, `created_at`, `updated_at`) VALUES
+(11, 'Shamim', 'Hossain', NULL, NULL, 'samim@gmail.com', 'samim', 's', NULL, NULL, NULL, NULL, NULL, '2024-08-17 00:56:08', '2024-08-17 00:56:08'),
+(12, 'Shamim', 'Hossain', NULL, NULL, 'samim@gmail.com', 'samim1', 's', NULL, NULL, NULL, NULL, NULL, '2024-08-17 00:59:06', '2024-08-17 00:59:06'),
+(13, 'Shamim', 'Hossain', NULL, NULL, 'samim@gmail.com', 'sabbir', 's', NULL, NULL, NULL, NULL, NULL, '2024-08-17 00:59:17', '2024-08-17 00:59:17'),
+(14, 'Shamim', 'Hossain', NULL, NULL, 'samim@gmail.com', 'samim4', 's', NULL, NULL, NULL, NULL, NULL, '2024-08-17 01:00:37', '2024-08-17 01:00:37'),
+(15, 'Shamim', 'Hossain', NULL, NULL, 'samim1@gmail.com', 'samim45', 's', NULL, NULL, NULL, NULL, NULL, '2024-08-17 01:04:56', '2024-08-17 01:04:56');
 
 --
 -- Indexes for dumped tables
@@ -457,8 +520,7 @@ ALTER TABLE `storetests`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -474,7 +536,7 @@ ALTER TABLE `categorys`
 -- AUTO_INCREMENT for table `digonesticsaleinfos`
 --
 ALTER TABLE `digonesticsaleinfos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -504,7 +566,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `refers`
@@ -516,13 +578,13 @@ ALTER TABLE `refers`
 -- AUTO_INCREMENT for table `storetests`
 --
 ALTER TABLE `storetests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
