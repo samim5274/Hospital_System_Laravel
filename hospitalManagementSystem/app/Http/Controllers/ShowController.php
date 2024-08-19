@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Investigation;
 use App\Models\Storetest;
+use App\Models\Digonesticsaleinfo;
 
 class ShowController extends Controller
 {
@@ -19,6 +20,8 @@ class ShowController extends Controller
         $storetest = StoreTest::all();
         $sum2 = StoreTest::sum('testprice');
 
+        
+        
         return view('showAllTest', compact('data1','data2','data3','storetest','sum2'));
     }
 
@@ -54,6 +57,14 @@ class ShowController extends Controller
         $deleteStoreTest = Storetest::find($id);
         $deleteStoreTest->delete();
         return redirect()->back()->with('success','Item test delete successfully.');
+    }
+
+    public function filterData($sDate, $eDate, Request $request)
+    {
+        $sDate = $request->has('startDate')? $request->get('startDate'):'';
+        $eDate = $request->has('endDate')? $request->get('endDate'):'';
+        dd($Sdata, $eDate);
+        $saleinfo = Digonesticsaleinfo::whereBetween('testsalteDate',[$sDate, $eDate])->get();
     }
 
 }

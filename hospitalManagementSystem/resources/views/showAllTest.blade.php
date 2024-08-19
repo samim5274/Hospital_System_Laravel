@@ -30,6 +30,74 @@
   </div>
 </section>
 
+
+<section id="test-sale-report-section">
+    <div class="container">
+        <div class="row">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="">Start:</label>
+                        <input name="startDate" type="date">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">End:</label>
+                        <input name="endDate" type="date">
+                    </div>
+                    <div class="col-md-4">
+                    <a href="{{ url('/add-item/'.$data->id) }}"><button class="btn btn-info">Search</button></a>
+                    </div>
+                </div>                
+            </div>
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===============================show all test========================================  -->
+
+<section id="show-test-details">
+    <div class="container">
+    <div class="row">
+        <div class="col">                
+        <table class="table table-bordered" >
+            <thead class="text-center">
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Test Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Room No</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach($data1 as $data)
+                <tr>
+                    <th scope="row">{{$data->id}}</th>
+                    <td>{{$data->name}}</td>
+                    <td>{{$data->catname}}</td>                    
+                    <td>৳{{$data->price}}/-</td>
+                    <td>{{$data->room}}</td>
+                </tr>
+                @endforeach   
+                <tr>
+                    <th scope="row">Total: {{$data2}}</th>
+                    <td></td>
+                    <td></td>                    
+                    <td>Total:৳ {{$data3}}/-</td>
+                    <td></td>
+                </tr>  
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+</section>
+
+
 <section id="store-test">
     <div class="container">
         <div class="row">
@@ -92,48 +160,6 @@
         </div>
     </div>
 </section>
-
-
-<!-- ===============================show all test========================================  -->
-
-<section id="show-test-details">
-    <div class="container">
-    <div class="row">
-        <div class="col">                
-        <table class="table table-bordered" >
-            <thead class="text-center">
-                <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Test Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Price</th>
-                <th scope="col">Room No</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                @foreach($data1 as $data)
-                <tr>
-                    <th scope="row">{{$data->id}}</th>
-                    <td>{{$data->name}}</td>
-                    <td>{{$data->catname}}</td>                    
-                    <td>৳{{$data->price}}/-</td>
-                    <td>{{$data->room}}</td>
-                </tr>
-                @endforeach   
-                <tr>
-                    <th scope="row">Total: {{$data2}}</th>
-                    <td></td>
-                    <td></td>                    
-                    <td>Total:৳ {{$data3}}/-</td>
-                    <td></td>
-                </tr>  
-            </tbody>
-        </table>
-        </div>
-    </div>
-    </div>
-</section>
-
 
 </body>
 </html>

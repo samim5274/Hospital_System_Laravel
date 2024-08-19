@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Investigation;
 use App\Models\Category;
+use App\Models\Digonesticsaleinfo;
 use Illuminate\Http\Request;
 
 class ShowDataController extends Controller

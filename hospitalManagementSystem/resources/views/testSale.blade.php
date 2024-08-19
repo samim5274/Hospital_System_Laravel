@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digonestic Test Sale</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/testSale.css">
 </head>
@@ -36,16 +38,17 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Test Name</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
                             @foreach($data1 as $data)
                             <tr>
                                 <td scope="row">{{$data->id}}</td>
-                                <td>{{$data->name}}</td>
-                                <td>{{$data->price}}/-</td>
-                                <td><a href="{{ url('/add-item/'.$data->id) }}"><button class="btn btn-sm btn-info">Add</button></a></td>
+                                <td class="text-left">{{$data->name}}</td>
+                                <td class="text-right">{{$data->price}}/-</td>
+                                <!-- <td><a href="{{ url('/add-item/'.$data->id) }}"><button class="btn btn-sm btn-info">Add</button></a></td> -->
+                                <td><a href="{{ url('/add-item/'.$data->id) }}"><i class="fa fa-plus-circle" style="font-size:20px;color:green"></i></a></td>
                             </tr>
                             @endforeach                           
                             <tr>
@@ -62,10 +65,10 @@
                         <thead class="text-center">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Reg. No</th>
+                                <!-- <th scope="col">Reg. No</th> -->
                                 <th scope="col">Test Name</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody class="text-center">                            
@@ -73,10 +76,10 @@
                             @foreach($storetest as $datas => $row)
                             <tr>
                                 <th scope="row">{{$i;}}</th>
-                                <td>{{$row->regNum}}</td>
-                                <td>{{$row->testname}}</td>
-                                <td>{{$row->testprice}}</td>
-                                <td><a href="{{ url('/remove/item/'.$row['id']) }}"><button class="btn btn-sm btn-warning">Remove</button></a></td>
+                                <!-- <td>{{$row->regNum}}</td> -->
+                                <td class="text-left">{{$row->testname}}</td>
+                                <td class="text-right">{{$row->testprice}}/-</td>
+                                <td><a href="{{ url('/remove/item/'.$row['id']) }}"><i class="fa fa-remove" style="font-size:20px;color:red"></i></a></td>
                             </tr> 
                             <?php $i++;?>
                             @endforeach                 
@@ -134,8 +137,8 @@
                         </div>
                         <div class="col-md-6">
                             <label for="refer" class="form-label">Reference</label>
-                            <select name="referid" required class="custom-select" id="refer">
-                                <option selected disabled>Select Refer</option>
+                            <select name="referid"  class="custom-select" id="refer">
+                                <option selected required disabled>Select Refer</option>
                                 @foreach($ref as $refe)
                                 <option value="{{$refe->id}}">{{$refe->refName}}</option>
                                 @endforeach
@@ -340,7 +343,7 @@
                     <thead class="text-center">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
+                            <th class="text-left" scope="col">Patient Name</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Discount</th>
                             <th scope="col">Received</th>
@@ -353,7 +356,7 @@
                         @foreach($data2 as $datas => $row)
                         <tr>
                             <th scope="row">{{$i;}}</th>
-                            <td>{{$row->patientName}}</td>
+                            <td class="text-left">{{$row->patientName}}</td>
                             <td>{{$row->totalAmount}}</td>
                             <td>{{$row->discount}}</td>
                             <td>{{$row->received}}</td>

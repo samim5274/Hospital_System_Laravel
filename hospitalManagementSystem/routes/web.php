@@ -51,6 +51,8 @@ Route::resource('/insert-Iinvestigation', InvestigationController::class);
 
 Route::get('/view-test-details', 'App\Http\Controllers\ShowController@show');
 
+Route::get('/filter-test-sale-information/{sDate, eDate}', 'App\Http\Controllers\ShowController@filterData');
+
 Route::get('/add-item/{id}','App\Http\Controllers\ShowController@addItem');
 
 Route::get('/remove/item/{id}','App\Http\Controllers\ShowController@removeItem');
