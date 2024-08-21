@@ -10,14 +10,13 @@ use App\Http\Controllers\TestSaleController;
 use App\Http\Controllers\StoreTestController;
 use App\Http\Controllers\UserController;
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function() {
     return view('dashboard');
-});
+})->middleware('auth');
 
 Route::get('/login', function() {
     return view('userRegister');
@@ -56,6 +55,10 @@ Route::get('/add-item/{id}','App\Http\Controllers\ShowController@addItem');
 Route::get('/remove/item/{id}','App\Http\Controllers\ShowController@removeItem');
 
 Route::get('/show-filer-investigation-data','App\Http\Controllers\ShowController@filerData');
+
+Route::get('/test-middleware', function(){
+    return view('testMiddleware');
+})->middleware('isActive');
 
 // ======================== testing route here end ========================= //
 
