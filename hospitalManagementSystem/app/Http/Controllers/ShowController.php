@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Investigation;
 use App\Models\Storetest;
 use App\Models\Digonesticsaleinfo;
+use Carbon\Carbon;
 
 class ShowController extends Controller
 {
@@ -20,9 +21,11 @@ class ShowController extends Controller
         $storetest = StoreTest::all();
         $sum2 = StoreTest::sum('testprice');
 
+        $date3 = Carbon::now()->toDateString();
+        $date4 = Carbon::now()->toDateString();
+        $fillterTestSale = Digonesticsaleinfo::whereBetween('testsalteDate', [$date3,$date4])->get();
         
-        
-        return view('showAllTest', compact('data1','data2','data3','storetest','sum2'));
+        return view('showAllTest', compact('data1','data2','data3','storetest','sum2','fillterTestSale'));
     }
 
     public function addItem($id)
@@ -58,13 +61,23 @@ class ShowController extends Controller
         $deleteStoreTest->delete();
         return redirect()->back()->with('success','Item test delete successfully.');
     }
-
-    public function filterData($sDate, $eDate, Request $request)
+    
+    public function filerData(Request $request)
     {
-        $sDate = $request->has('startDate')? $request->get('startDate'):'';
-        $eDate = $request->has('endDate')? $request->get('endDate'):'';
-        dd($Sdata, $eDate);
-        $saleinfo = Digonesticsaleinfo::whereBetween('testsalteDate',[$sDate, $eDate])->get();
-    }
+        $date1 = $request->has('startDate')? $request->get('startDate'):'';
+        $date2 = $request->has('endDate')? $request->get('endDate'):'';
 
+        $fillterTestSale = Digonesticsaleinfo::whereBetween('testsalteDate', [$date1,$date2])->get();
+        $fillterTestSaleSum = Digonesticsaleinfo::whereBetween('testsalteDate', [$date1,$date2])->sum('received');
+
+        $data1 = DB::table('investigations')->join('categorys','investigations.catid','=','categorys.id')->select('investigations.id','investigations.name','investigations.price','investigations.room','categorys.catname')->get();
+
+        $data2 = Investigation::count();
+        $data3 = Investigation::sum('price');
+
+        $storetest = StoreTest::all();
+        $sum2 = StoreTest::sum('testprice');
+
+        return view('showAllTest', compact('fillterTestSale','fillterTestSaleSum','data1','data2','data3','storetest','sum2'));      
+    }
 }

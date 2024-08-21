@@ -34,8 +34,9 @@
 <section id="test-sale-report-section">
     <div class="container">
         <div class="row">
-            <div class="container text-center">
-                <div class="row">
+            <div class="mb-4 text-center">
+                <form action="/show-filer-investigation-data" method="GET" enctype="multipart/from-data">
+                    @csrf
                     <div class="col-md-4">
                         <label for="">Start:</label>
                         <input name="startDate" type="date">
@@ -45,12 +46,44 @@
                         <input name="endDate" type="date">
                     </div>
                     <div class="col-md-4">
-                    <a href="{{ url('/add-item/'.$data->id) }}"><button class="btn btn-info">Search</button></a>
+                    <a href=""><button class="btn btn-info">Search</button></a>
                     </div>
-                </div>                
+                </form>            
             </div>
             <div class="col-md-12">
-                
+                <table class="table table-info" >
+                    <thead class="text-center">
+                        <tr>
+                        <th scope="col">SL</th>
+                        <th scope="col" class="text-left">Sale Date</th>
+                        <th scope="col" class="text-left">Name</th>
+                        <th scope="col" class="text-left">Gender</th>
+                        <th scope="col" class="text-left">Phone</th>
+                        <th scope="col" class="text-right">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center"><label for="" hidden>{{$i=1}}</label>
+                        @foreach($fillterTestSale as $data)
+                        <tr>
+                            <th scope="row">{{$i}}</th>              
+                            <td class="text-left">{{$data->testsalteDate}}</td>
+                            <td class="text-left">{{$data->patientName}}</td>      
+                            <td class="text-left">{{$data->gender}}</td>      
+                            <td class="text-left">{{$data->phone}}</td>      
+                            <td class="text-right">৳{{$data->received}}/-</td>
+                        </tr>
+                        <label for="" hidden>{{$i++}}</label>
+                        @endforeach   
+                        <tr>
+                            <th scope="row">Total: </th>
+                            <td></td>
+                            <td></td>                    
+                            <td></td>                    
+                            <td>Total:</td>
+                            <td class="text-right">৳{{$fillterTestSaleSum}}/-</td>
+                        </tr>  
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
